@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './app';
+import Router from 'router';
 
 const render = Component => {
   ReactDOM.render(
@@ -12,11 +12,11 @@ const render = Component => {
   )
 };
 
-render(App);
+render(Router);
 
 // Webpack Hot Module Replacement API
 if (process.env.NODE_ENV === 'development') {
-  module.hot.accept('./app', () => {
-    render(App)
+  module.hot.accept('router', () => {
+    render(Router)
   })
 }
