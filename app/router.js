@@ -4,7 +4,7 @@ import { Router, Route, Switch } from 'react-router';
 import App from 'containers/App';
 import ArticleList from 'modules/articleList/containers/ArticleListContainer';
 import SignIn from 'modules/signIn';
-import SignUp from 'modules/signUp';
+import SignUp from 'modules/signUp/containers/SignUpContainer';
 
 const history=createBrowserHistory();
 
