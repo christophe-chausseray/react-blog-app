@@ -3,7 +3,7 @@ import Header from 'components/Header';
 
 class App extends Component {
   render() {
-    return(
+    return (
       <div className="app-container">
         <Header />
         <div className="main-container">
@@ -13,4 +13,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
