@@ -4,13 +4,14 @@ import logger from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import articleList from './../modules/articleList/reducers';
+import { localStorageMiddleware } from './../middlewares';
 
 const reducers = combineReducers({
   articleList,
   form: formReducer
 });
 
-const middlewares = applyMiddleware(promiseMiddleware(), thunk, logger);
+const middlewares = applyMiddleware(promiseMiddleware(), thunk, logger, localStorageMiddleware);
 
 const store = createStore(reducers, middlewares);
 
