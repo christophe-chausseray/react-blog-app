@@ -1,14 +1,19 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import {applyMiddleware, createStore, combineReducers} from 'redux';
+import {reducer as formReducer} from 'redux-form';
 import logger from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import articleList from './../modules/articleList/reducers';
+import signUp from './../modules/signUp/reducers';
+import { localStorageMiddleware } from './../middlewares';
 
 const reducers = combineReducers({
-  articleList
+  articleList,
+  signUp,
+  form: formReducer
 });
 
-const middlewares = applyMiddleware(promiseMiddleware(), thunk, logger);
+const middlewares = applyMiddleware(promiseMiddleware(), thunk, logger, localStorageMiddleware);
 
 const store = createStore(reducers, middlewares);
 

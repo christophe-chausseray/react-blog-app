@@ -17,7 +17,7 @@ const ArticlePreview = props => {
         </div>
 
         <div>
-          {article.favoriteCount}
+          {article.favoritesCount}
         </div>
 
         <Link to={`articles/${article.slug}`}>

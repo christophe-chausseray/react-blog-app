@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   });
 };
 const mapDispatchToProps = dispatch => ({
-  onLoad: (payload) => dispatch({ type:'ARTICLE_LIST', payload })
+  onLoad: payload => dispatch({ type:'ARTICLE_LIST', payload })
 });
 
 class ArticleListContainer extends Component {
