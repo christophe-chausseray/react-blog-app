@@ -5,7 +5,12 @@ export default (state = initialState, action) => {
     case 'REGISTER_FULFILLED':
       return {
         ...state,
-        errors: action.error ? action.payload.errors : null
+        data: action.payload.data
+      };
+    case 'REGISTER_REJECTED':
+      return {
+        ...state,
+        error: action.payload.response.data.errors
       };
     case 'UPDATE_FIELD_AUTH':
       return {
