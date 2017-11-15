@@ -12,6 +12,16 @@ export default (state = initialState, action) => {
         ...state,
         error: action.payload.response.data.errors
       };
+    case 'LOGIN_FULFILLED':
+      return {
+        ...state,
+        data: action.payload.data
+      };
+    case 'LOGIN_REJECTED':
+      return {
+        ...state,
+        error: action.payload.response.data.errors
+      };
     case 'UPDATE_FIELD_AUTH':
       return {
         ...state,
