@@ -4,12 +4,12 @@ import logger from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import articleList from './../modules/articleList/reducers';
-import signUp from './../modules/signUp/reducers';
+import auth from './../modules/auth/reducers';
 import { localStorageMiddleware } from './../middlewares';
 
 const reducers = combineReducers({
   articleList,
-  signUp,
+  auth,
   form: formReducer
 });
 
