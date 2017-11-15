@@ -31,7 +31,6 @@ class SignUpContainer extends Component {
             _error: `${key} ${value}`
           });
         });
-
       });
   };
 

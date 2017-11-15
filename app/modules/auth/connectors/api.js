@@ -9,3 +9,11 @@ export function registerUser(username, email, password) {
   return axios.post(url, data)
     .then(response => response);
 }
+
+export function loginUser(email, password) {
+  const data = { user: { email, password }};
+
+  const url = `${API_ROOT}/users/login`;
+  return axios.post(url, data)
+    .then(response => response);
+}
