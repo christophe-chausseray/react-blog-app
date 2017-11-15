@@ -2,9 +2,11 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const SignUpForm = props => {
-  const { handleSubmit } = props;
+  const { error, handleSubmit, submitting } = props;
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(props.onSubmit)}>
+      { error && <div className="error">{error}</div>}
       <div>
         <label htmlFor="userName">Username</label>
         <Field name="username" component="input" type="text" onChange={props.onChangeUsername} />
@@ -17,7 +19,7 @@ const SignUpForm = props => {
         <label htmlFor="password">Pasword</label>
         <Field name="password" component="input" type="password" onChange={props.onChangePassword} />
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit" disabled={submitting}>Sign Up</button>
     </form>
   );
 };

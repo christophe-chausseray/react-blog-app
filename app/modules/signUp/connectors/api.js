@@ -7,5 +7,5 @@ export function registerUser(username, email, password) {
 
   const url = `${API_ROOT}/users`;
   return axios.post(url, data)
-    .then(response => response.data);
+    .then(response => response);
 }

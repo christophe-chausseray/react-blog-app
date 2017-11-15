@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SubmissionError } from 'redux-form';
 import { registerUser } from './../connectors/api';
 import SignUpForm from './../components/SignUpForm';
 
@@ -10,7 +11,7 @@ const mapDispatchToProps = dispatch => ({
   onChangePassword: value => dispatch({ type: 'UPDATE_FIELD_AUTH', key: 'password', value }),
   onSubmit: (username, email, password) => {
     const payload = registerUser(username, email, password);
-    dispatch({ type: 'REGISTER_FULFILLED', payload });
+    return dispatch({ type: 'REGISTER', payload });
   }
 });
 
@@ -20,7 +21,18 @@ class SignUpContainer extends Component {
   }
 
   submit = values => {
-    this.props.onSubmit(values.username, values.email, values.password);
+    return this.props.onSubmit(values.username, values.email, values.password)
+      .then(response => this.props.history.push('/'))
+      .catch(response => {
+        const errors = response.response.data.errors;
+        Object.keys(errors).map((key) => {
+          const value = errors[key];
+          throw new SubmissionError({
+            _error: `${key} ${value}`
+          });
+        });
+
+      });
   };
 
   render() {
