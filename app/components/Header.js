@@ -1,7 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LoggedInNavBar from 'components/LoggedInNavBar';
+import LoggedOutNavBar from 'components/LoggedOutNavBar';
 
-const Header = () => (
+const Header = props => {
+  let navBar = null;
+  if (props.currentUser) {
+    navBar = <LoggedInNavBar onClick={props.onClick} />;
+  } else {
+    navBar = <LoggedOutNavBar />;
+  }
+
+  return (
     <nav className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-header">
@@ -10,19 +20,9 @@ const Header = () => (
           </NavLink>
         </div>
 
-        <ul className="nav navbar-nav navbar-right">
-          <li className="nav-item">
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/login">Sign in</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/register">Sign up</NavLink>
-          </li>
-        </ul>
+        {navBar}
       </div>
     </nav>
-);
+)};
 
 export default Header;
