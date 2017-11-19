@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
     case 'REGISTER_FULFILLED':
       return {
         ...state,
-        data: action.payload.data
+        currentUser: action.payload.data
       };
     case 'REGISTER_REJECTED':
       return {
@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
     case 'LOGIN_FULFILLED':
       return {
         ...state,
-        data: action.payload.data
+        currentUser: action.payload.data
       };
     case 'LOGIN_REJECTED':
       return {
@@ -26,6 +26,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         [action.key]: action.value
+      };
+    case 'LOGOUT':
+      return {
+        ...state,
+        currentUser: null
       };
     default:
       return state;
