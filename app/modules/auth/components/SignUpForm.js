@@ -16,10 +16,10 @@ const SignUpForm = props => {
         <Field name="email" component="input" type="email" onChange={props.onChangeEmail} />
       </div>
       <div>
-        <label htmlFor="password">Pasword</label>
+        <label htmlFor="password">Password</label>
         <Field name="password" component="input" type="password" onChange={props.onChangePassword} />
       </div>
-      <button type="submit" disabled={submitting}>Sign In</button>
+      <button type="submit" disabled={submitting}>Sign Up</button>
     </form>
   );
 };
