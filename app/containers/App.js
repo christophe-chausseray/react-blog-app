@@ -13,8 +13,8 @@ const mapStateToDispatch = dispatch => ({
 });
 
 class App extends Component {
-  handleClickLogout = e => {
-    e.preventDefault();
+  handleClickLogout = event => {
+    event.preventDefault();
     this.props.onClickLogout();
   };
 

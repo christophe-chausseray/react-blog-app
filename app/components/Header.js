@@ -5,7 +5,7 @@ import LoggedOutNavBar from 'components/LoggedOutNavBar';
 
 const Header = props => {
   let navBar = null;
-  if (props.currentUser) {
+  if (window.localStorage.authorization) {
     navBar = <LoggedInNavBar onClick={props.onClick} />;
   } else {
     navBar = <LoggedOutNavBar />;

@@ -7,7 +7,7 @@ const LoggedInNavBar = props => (
       <NavLink to="/">Home</NavLink>
     </li>
     <li className="nav-item">
-      <NavLink to="/login">New post</NavLink>
+      <NavLink to="/editor">New post</NavLink>
     </li>
     <li className="nav-item">
       <NavLink to="/" onClick={props.onClick}>Logout</NavLink>
