@@ -13,11 +13,19 @@ const mapStateToDispatch = dispatch => ({
 });
 
 class App extends Component {
+  /**
+   * Handle the logout action.
+   *
+   * @param event
+   */
   handleClickLogout = event => {
     event.preventDefault();
     this.props.onClickLogout();
   };
 
+  /**
+   * Render the application.
+   */
   render() {
     return (
       <div className="app-container">

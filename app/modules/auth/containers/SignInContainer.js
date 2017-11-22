@@ -19,6 +19,12 @@ class SignInContainer extends Component {
     super();
   }
 
+  /**
+   * Submit the sign in form.
+   *
+   * @param values
+   * @return {Promise.<T>}
+   */
   submit = values => {
     return this.props.onSubmit(values.email, values.password)
       .then(response => this.props.history.push('/'))
@@ -33,6 +39,9 @@ class SignInContainer extends Component {
       });
   };
 
+  /**
+   * Render the sign in form.
+   */
   render() {
     return (
       <div>
