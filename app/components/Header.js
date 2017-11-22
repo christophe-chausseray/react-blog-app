@@ -12,7 +12,7 @@ const Header = props => {
   }
 
   return (
-    <nav className="navbar navbar-default nav-color">
+    <nav className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-header">
           <NavLink to="/" className="navbar-brand">
