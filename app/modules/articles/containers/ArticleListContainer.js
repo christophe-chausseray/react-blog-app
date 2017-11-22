@@ -17,6 +17,9 @@ class ArticleListContainer extends Component {
     this.props.onLoad(getArticleList());
   }
 
+  /**
+   * Render the article list view.
+   */
   render() {
     return(
       <ArticleList articles={this.props.articles} />

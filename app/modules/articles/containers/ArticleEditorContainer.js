@@ -20,10 +20,21 @@ class ArticleEditorContainer extends Component {
     }
   }
 
+  /**
+   * Handle the field's updates action.
+   *
+   * @param event
+   */
   onChangeField = event => {
     this.props.onUpdateField(event.target.name, event.target.value);
   };
 
+  /**
+   * Submit the editor form.
+   *
+   * @param article
+   * @return {Promise.<T>}
+   */
   submit = article => {
     let promise = null;
     if (!this.props.match.params.slug) {
@@ -48,6 +59,9 @@ class ArticleEditorContainer extends Component {
       });
   };
 
+  /**
+   * Render the editor view.
+   */
   render() {
     return (
       <ArticleEditorForm onSubmit={this.submit} initialValues={this.props.initialValues} />

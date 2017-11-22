@@ -1,3 +1,10 @@
+/**
+ * Manage the authorization token in the local storage.
+ *
+ * @param store
+ * @param next
+ * @param action
+ */
 const localStorageMiddleware = store => next => action => {
   if (action.type === 'REGISTER_FULFILLED' || action.type === 'LOGIN_FULFILLED') {
     if (!action.error) {

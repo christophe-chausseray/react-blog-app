@@ -3,7 +3,12 @@ import qs from 'query-string';
 
 const API_ROOT = 'https://conduit.productionready.io/api';
 
-export function getArticleList() {
+/**
+ * Retrieve the article list.
+ *
+ * @return {*}
+ */
+const getArticleList = () => {
   const data = qs.stringify({
     limit: 10
   });
@@ -11,9 +16,15 @@ export function getArticleList() {
   const url = `${API_ROOT}/articles?${data}`;
   return axios.get(url)
     .then(response => response.data.articles);
-}
+};
 
-export function addArticle(article) {
+/**
+ * Add an article.
+ *
+ * @param article
+ * @return {*}
+ */
+const addArticle = article => {
   const url = `${API_ROOT}/articles`;
   const config = {
     headers: {'authorization': `Token ${window.localStorage.getItem('authorization')}`}
@@ -21,9 +32,15 @@ export function addArticle(article) {
 
   return axios.post(url, article, config)
     .then(response => response.data.article);
-}
+};
 
-export function updateArticle(article) {
+/**
+ * Update an article.
+ *
+ * @param article
+ * @return {*}
+ */
+const updateArticle = article => {
   const url = `${API_ROOT}/articles/${article.slug}`;
   const config = {
     headers: {'authorization': `Token ${window.localStorage.getItem('authorization')}`}
@@ -31,9 +48,15 @@ export function updateArticle(article) {
 
   return axios.put(url, article, config)
     .then(response => response.data.article);
-}
+};
 
-export function getArticle(slug) {
+/**
+ * Get an article.
+ *
+ * @param slug
+ * @return {*}
+ */
+const getArticle = slug => {
   const url = `${API_ROOT}/articles/${slug}`;
   const config = {
     headers: {'authorization': `Token ${window.localStorage.getItem('authorization')}`}
@@ -41,9 +64,15 @@ export function getArticle(slug) {
 
   return axios.get(url, config)
     .then(response => response.data.article);
-}
+};
 
-export function deleteArticle(slug) {
+/**
+ * Delete an article.
+ *
+ * @param slug
+ * @return {*}
+ */
+const deleteArticle = slug => {
   const url = `${API_ROOT}/articles/${slug}`;
   const config = {
     headers: {'authorization': `Token ${window.localStorage.getItem('authorization')}`}
@@ -51,4 +80,12 @@ export function deleteArticle(slug) {
 
   return axios.delete(url, config)
     .then(response => response.data.article);
+};
+
+export {
+  getArticleList,
+  addArticle,
+  updateArticle,
+  getArticle,
+  deleteArticle
 }
