@@ -5,22 +5,36 @@ const SignUpForm = props => {
   const { error, handleSubmit, submitting } = props;
 
   return (
-    <form onSubmit={handleSubmit(props.onSubmit)}>
-      {error && <div className="error">{error}</div>}
-      <div>
-        <label htmlFor="userName">Username</label>
-        <Field name="username" component="input" type="text" onChange={props.onChangeUsername} />
+    <div className="container-fluid">
+      <div className="row col-md-6 center">
+        <form onSubmit={handleSubmit(props.onSubmit)} className="form-horizontal" align="center">
+          {error && <div className="alert alert-danger" role="alert">{error}</div>}
+          <div className="form-group">
+            <label className="control-label col-md-3" htmlFor="userName">Username</label>
+            <div className="col-md-8">
+              <Field name="username" className="form-control" component="input" type="text" onChange={props.onChangeUsername} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="control-label col-md-3" htmlFor="email">Email</label>
+            <div className="col-md-8">
+              <Field name="email" className="form-control" component="input" type="email" onChange={props.onChangeEmail} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="control-label col-md-3" htmlFor="password">Password</label>
+            <div className="col-md-8">
+              <Field name="password" className="form-control" component="input" type="password" onChange={props.onChangePassword} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-md-offset-3 col-md-8">
+              <button type="submit" className="btn btn-primary" disabled={submitting}>Sign Up</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email" onChange={props.onChangeEmail} />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <Field name="password" component="input" type="password" onChange={props.onChangePassword} />
-      </div>
-      <button type="submit" disabled={submitting}>Sign Up</button>
-    </form>
+    </div>
   );
 };
 

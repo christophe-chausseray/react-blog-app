@@ -36,7 +36,6 @@ class SignInContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Sign In</h2>
         <SignInForm onSubmit={this.submit} />
       </div>
     );

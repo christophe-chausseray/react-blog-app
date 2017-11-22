@@ -29,29 +29,11 @@ module.exports = {
             ],
           },
         },
-      },
-      // Add SASS support  - compile all other .scss files and pipe it to style.css
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({template: './app/index.html'}),
+    new HtmlWebpackPlugin({template: './app/index.html'})
   ]
 };
