@@ -37,7 +37,6 @@ class SignUpContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Sign Up</h2>
         <SignUpForm onSubmit={this.submit} />
       </div>
     );
